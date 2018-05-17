@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Identify the Cricketers</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/app.css?4">
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/app.js?4"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1">
+      </div>
+      <div class="col-xs-10">
+        <div class="row">
+          <img src="/static/images/robot.png" class="logo">
+          <h1 class="title-caption text-muted">Identify the Cricketers</h1>
+        </div>
+        <div id="droparea">
+          <p class="text-center text-capitalize">
+            Drop your image file here.
+          </p>
+          <input type="file" id="upfile">
+          <button class="btn btn-primary" id="upload">Upload</button>
+        </div>
+        <p>
+          <strong>Note:</strong> Your uploaded files will <strong>NOT</strong> be saved in the server.
+        </p>
+        <table class="table table-striped samples">
+          {% for item in items %}
+          <tr>
+            <td>
+              <img src="/static/images/samples/{{ item.image }}">
+            </td>
+            <td>
+              <h2>I'm {{ item.prob }}% sure this is a <span class="text-uppercase"><strong>{{ item.kind }}</strong></span>.</h2>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <div class="row text-center">
+          <p>
+            Copyright 2018 <a href="https://github.com/wltsapp/wlts-cricketers/">WLTS</a>
+          </p>
+          <p>
+            Powered by WLTS Team.
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-1">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

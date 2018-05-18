@@ -136,7 +136,8 @@ class Predictor:
 									kindval+= result_names + ","						
 									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
-						item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
+						if str(probval)!= ""
+							item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 					else:
 						print('Unable to align')
 				#cv2.imshow('Image', frame)

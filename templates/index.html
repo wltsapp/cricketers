@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Identify the Cricketers</title>
+  <title>Facenet</title>
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/static/css/app.css?4">
   <script src="/static/js/jquery.min.js"></script>
@@ -18,7 +18,7 @@
       <div class="col-xs-10">
         <div class="row">
           <img src="/static/images/robot.png" class="logo">
-          <h1 class="title-caption text-muted">Identify the Cricketers</h1>
+          <h1 class="title-caption text-muted">Facenet</h1>
         </div>
         <div id="droparea">
           <p class="text-center text-capitalize">
@@ -37,17 +37,21 @@
               <img src="/static/images/samples/{{ item.image }}">
             </td>
             <td>
+			{% if item.prob != "": %}
               <h2>I'm {{ item.prob }}% sure this is a <span class="text-uppercase"><strong>{{ item.kind }}</strong></span>.</h2>
+			    {% else %}
+				 <h2>This is <span class="text-uppercase"><strong>{{ item.kind }}</strong></span>.</h2>
+			   {% endif %}
             </td>
           </tr>
           {% endfor %}
         </table>
         <div class="row text-center">
           <p>
-            Copyright 2018 <a href="https://github.com/wltsapp/wlts-cricketers/">WLTS</a>
+            Copyright 2018 <a href="https://github.com/elm200/recognize-dogs-and-cats">WLTS</a>
           </p>
           <p>
-            Powered by WLTS Team.
+            Powered by tensorflow, Keras and Flask. Special thanks to <a href="https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition">Kaggle</a> and <a href="http://goo.gl/rTKJ9z">the logo</a>.
           </p>
         </div>
       </div>

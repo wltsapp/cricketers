@@ -132,7 +132,7 @@ class Predictor:
 								if HumanNames[best_class_indices[0]] == H_i:
 									result_names = HumanNames[best_class_indices[0]]
 									print(result_names)
-									probval=probval+best_class_probabilities+','
+									probval=probval+str(best_class_probabilities)+','
 									kindval=kindval+result_names+','
 									item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))

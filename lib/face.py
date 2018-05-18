@@ -134,7 +134,7 @@ class Predictor:
 									print(result_names)
 									probval=probval+str(best_class_probabilities)+','
 									kindval=kindval+result_names+','
-									item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
+						item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 					else:

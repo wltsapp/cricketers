@@ -37,6 +37,8 @@ class Predictor:
 				batch_size = 1000
 				image_size = 182
 				input_image_size = 160
+				probval=""
+				kindval=""
 				
 				HumanNames = os.listdir(train_img)
 				HumanNames.sort()
@@ -123,20 +125,18 @@ class Predictor:
 							text_y = bb[i][3] + 20
 							print('Result Indices: ', best_class_indices[0])
 							#best_class_indices[0]=3
-							print(HumanNames)
-							items = []
-							probval=""
-							kindval=""
+							print(HumanNames)							
+							
 							for H_i in HumanNames:
 								#print(HumanNames[best_class_indices[0]])
 								if HumanNames[best_class_indices[0]] == H_i:
 									result_names = HumanNames[best_class_indices[0]]
 									print(result_names)
 									probval += str(best_class_probabilities) + ","
-									kindval.join(result_names + ",")						
+									kindval+= result_names + ","						
 									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
-							item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
+						item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 					else:
 						print('Unable to align')
 				#cv2.imshow('Image', frame)

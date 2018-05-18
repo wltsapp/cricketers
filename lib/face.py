@@ -37,6 +37,8 @@ class Predictor:
 				batch_size = 1000
 				image_size = 182
 				input_image_size = 160
+				probval=""
+				kindval=""
 				
 				HumanNames = os.listdir(train_img)
 				HumanNames.sort()
@@ -85,7 +87,7 @@ class Predictor:
 						scaled = []
 						scaled_reshape = []
 						bb = np.zeros((nrof_faces,4), dtype=np.int32)
-
+						
 						for i in range(nrof_faces):
 							emb_array = np.zeros((1, embedding_size))
 
@@ -97,6 +99,7 @@ class Predictor:
 							# inner exception
 							if bb[i][0] <= 0 or bb[i][1] <= 0 or bb[i][2] >= len(frame[0]) or bb[i][3] >= len(frame):
 								print('face is too close')
+								#items.append(dict(prob='', kind='face is too close'))
 								item = dict(prob='', kind='face is too close')
 								continue
 
@@ -122,16 +125,21 @@ class Predictor:
 							text_y = bb[i][3] + 20
 							print('Result Indices: ', best_class_indices[0])
 							#best_class_indices[0]=3
-							print(HumanNames)
-							item = []
+							print(HumanNames)							
+							
 							for H_i in HumanNames:
 								#print(HumanNames[best_class_indices[0]])
 								if HumanNames[best_class_indices[0]] == H_i:
 									result_names = HumanNames[best_class_indices[0]]
 									print(result_names)
-									item.append(dict(prob=str(best_class_probabilities), kind=result_names))
+									probval += str(best_class_probabilities) + ","
+									kindval+= result_names + ","						
+									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
+						if probval != "":
+							item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 					else:
+						item = dict(prob='', kind='No face is avilable')
 						print('Unable to align')
 				#cv2.imshow('Image', frame)
 				#cv2.waitKey(0)
@@ -141,5 +149,6 @@ class Predictor:
 				#cv2.destroyAllWindows()
 				 #pred = self.predict_images([img_path])[0]
 				 #prob, kind = self.get_prob_and_kind(pred)
-				 #item = dict(prob=prob, kind=kind)				
+				 #item = dict(prob=prob, kind=kind)		
+		
 		return item			

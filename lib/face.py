@@ -142,5 +142,6 @@ class Predictor:
 				#cv2.destroyAllWindows()
 				 #pred = self.predict_images([img_path])[0]
 				 #prob, kind = self.get_prob_and_kind(pred)
-				 #item = dict(prob=prob, kind=kind)				
+				 #item = dict(prob=prob, kind=kind)		
+		print(items)
 		return items			

@@ -139,6 +139,7 @@ class Predictor:
 						if probval != "":
 							item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
 					else:
+						item = dict(prob='', kind='No face is avilable')
 						print('Unable to align')
 				#cv2.imshow('Image', frame)
 				#cv2.waitKey(0)
@@ -149,5 +150,5 @@ class Predictor:
 				 #pred = self.predict_images([img_path])[0]
 				 #prob, kind = self.get_prob_and_kind(pred)
 				 #item = dict(prob=prob, kind=kind)		
-		print(item)
+		
 		return item			

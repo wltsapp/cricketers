@@ -132,8 +132,9 @@ class Predictor:
 								if HumanNames[best_class_indices[0]] == H_i:
 									result_names = HumanNames[best_class_indices[0]]
 									print(result_names)
-									probval += str(best_class_probabilities) + ","
-									kindval+= result_names + ","						
+									if best_class_probabilities > 0.5:
+										probval += str(best_class_probabilities) + ","
+										kindval+= result_names + ","						
 									#items.append(dict(prob=str(best_class_probabilities), kind=result_names))
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 						if probval != "":

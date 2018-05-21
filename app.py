@@ -32,9 +32,9 @@ def upload():
     img_path = os.path.join("./cache/", img_file)    
     upfile.save(img_path)
 	if '.mp4' in 'sadadasdsaddas':		
-		item = VideoPredictor.get_video_item(img_path) 
+			item = VideoPredictor.get_video_item(img_path) 
 	else:
-		item = predictor.get_image_item(img_path)    
+			item = predictor.get_image_item(img_path)    
     os.remove(img_path)
     return json.dumps(item)
 

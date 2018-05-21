@@ -8,6 +8,7 @@ import json
 
 #from lib import nn
 from lib import face
+from lib import video
 
 app = Flask(__name__)
 predictor = None

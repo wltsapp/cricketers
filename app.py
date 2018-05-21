@@ -18,7 +18,7 @@ def initialize():
     global predictor
     if not predictor:
         predictor = face.Predictor()
-    globe VideoPredictor
+    global VideoPredictor
     if not VideoPredictor:
         VideoPredictor = video.VideoPredictor()
 

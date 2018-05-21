@@ -14,16 +14,15 @@ from scipy import misc
 from packages import facenet, detect_face
 
 input_video="akshay_mov.mp4"
-modeldir = './model/20170511-185253.pb'
+modeldir = './models/20170511-185253.pb'
 classifier_filename = './class/classifier.pkl'
 npy=''
 train_img="./train_img"
-
 class VideoPredictor:
 	def __init__(self):       
         	self.kinds = ["CAT", "DOG"]
 			
-	def get_video_item(self, img_path):  
+	def get_video_item(self, img_path):
 		with tf.Graph().as_default():
 			gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.6)
 			sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
@@ -54,7 +53,7 @@ class VideoPredictor:
 				with open(classifier_filename_exp, 'rb') as infile:
 					(model, class_names) = pickle.load(infile)
 
-				video_capture = cv2.VideoCapture(input_video)
+				video_capture = cv2.VideoCapture(img_path)
 				c = 0
 
 
@@ -128,7 +127,7 @@ class VideoPredictor:
 									for H_i in HumanNames:
 										if HumanNames[best_class_indices[0]] == H_i:
 											result_names = HumanNames[best_class_indices[0]]
-											item = dict(prob=best_class_probabilities, kind=result_names.rstrip(','))
+											item = dict(prob='1', kind=result_names)
 											#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 						else:
 							print('Alignment Failure')

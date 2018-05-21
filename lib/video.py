@@ -70,8 +70,8 @@ class VideoPredictor:
 					if (c % timeF == 0):
 						find_results = []
 
-						if frame.ndim == 2:
-							frame = facenet.to_rgb(frame)
+						#if frame.ndim == 2:
+							#frame = facenet.to_rgb(frame)
 						frame = frame[:, :, 0:3]
 						bounding_boxes, _ = detect_face.detect_face(frame, minsize, pnet, rnet, onet, threshold, factor)
 						nrof_faces = bounding_boxes.shape[0]

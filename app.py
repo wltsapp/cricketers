@@ -8,6 +8,7 @@ import json
 
 #from lib import nn
 from lib import face
+from lib import video
 
 app = Flask(__name__)
 predictor = None
@@ -30,8 +31,7 @@ def upload():
     img_file = "image" + str(random.randint(0, 999999)) + os.path.splitext(upfile.filename)[1]
     img_path = os.path.join("./cache/", img_file)    
     upfile.save(img_path)  
-	if '.mp4' in upfile.filename:
-		from lib import video
+	if '.mp4' in upfile.filename:		
 		item = VideoPredictor.get_video_item(img_path) 
 	else:
 		item = predictor.get_image_item(img_path)    

@@ -30,8 +30,8 @@ def upload():
     upfile = request.files["upfile"]
     img_file = "image" + str(random.randint(0, 999999)) + os.path.splitext(upfile.filename)[1]
     img_path = os.path.join("./cache/", img_file)         
-	if upfile.filename != "":		
-		item = VideoPredictor.get_video_item(img_path) 
+	if img_file != "":		
+		item = predictor.get_image_item(img_path) 
 	else:
 		item = predictor.get_image_item(img_path)   
 	upfile.save(img_path)		

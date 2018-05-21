@@ -62,7 +62,7 @@ class VideoPredictor:
 				while True:
 					ret, frame = video_capture.read()
 
-					#frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)    #resize frame (optional)
+					frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)    #resize frame (optional)
 
 					curTime = time.time()+1    # calc fps
 					timeF = frame_interval
@@ -70,9 +70,9 @@ class VideoPredictor:
 					if (c % timeF == 0):
 						find_results = []
 
-						#if frame.ndim == 2:
-							#frame = facenet.to_rgb(frame)
-						#frame = frame[:, :, 0:3]
+						if frame.ndim == 2:
+							frame = facenet.to_rgb(frame)
+						frame = frame[:, :, 0:3]
 						bounding_boxes, _ = detect_face.detect_face(frame, minsize, pnet, rnet, onet, threshold, factor)
 						nrof_faces = bounding_boxes.shape[0]
 						print('Detected_FaceNum: %d' % nrof_faces)

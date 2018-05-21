@@ -31,7 +31,7 @@ def upload():
     img_file = "image" + str(random.randint(0, 999999)) + os.path.splitext(upfile.filename)[1]
     img_path = os.path.join("./cache/", img_file)    
     upfile.save(img_path)
-	if '.mp4' in img_file:		
+	if '.mp4' in 'sadadasdsaddas':		
 		item = VideoPredictor.get_video_item(img_path) 
 	else:
 		item = predictor.get_image_item(img_path)    

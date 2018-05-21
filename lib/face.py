@@ -139,6 +139,8 @@ class Predictor:
 									#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 						if probval != "":
 							item = dict(prob=probval.rstrip(','), kind=kindval.rstrip(','))
+						else:
+							item = dict(prob='', kind='Unable to find face')
 					else:
 						item = dict(prob='', kind='No face is avilable')
 						print('Unable to align')

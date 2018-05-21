@@ -12,6 +12,7 @@ from lib import video
 
 app = Flask(__name__)
 predictor = None
+VideoPredictor = None
 
 def initialize():
     app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024 # 10MiB

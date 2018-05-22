@@ -39,9 +39,17 @@ def upload():
     if '.mp4' in upfile.filename:		
         item = VideoPredictor.get_video_item(img_path) 
     else:
-        item = predictor.get_image_item(img_path)    
+        item = predictor.get_image_item(img_path)   
+	print(img_path)		
     os.remove(img_path)
     return json.dumps(item)
+
+@app.route('/upload', methods=['POST'])	
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/upload_image', methods=['GET', 'POST'])
 def upload_image():

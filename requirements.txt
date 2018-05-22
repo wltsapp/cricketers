@@ -21,3 +21,4 @@ Werkzeug==0.12.2
 scikit-learn==0.19.1
 opencv-python==3.1.0.4
 face_recognition_models
+face_recognition

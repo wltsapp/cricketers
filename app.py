@@ -40,11 +40,11 @@ def upload():
         item = VideoPredictor.get_video_item(img_path) 
     else:
         item = predictor.get_image_item(img_path)   
-	print(img_path)		
+	#print(img_path)		
     os.remove(img_path)
     return json.dumps(item)
 
-@app.route('/upload', methods=['POST'])	
+@app.route('/upload1', methods=['POST'])	
 def gen(camera):
     while True:
         frame = camera.get_frame()

@@ -1,7 +1,7 @@
 import time
 import os
 import random
-from flask import Flask, render_template, request
+from flask import Flask, render_template, jsonify, request, redirect
 from glob import glob
 from pprint import pprint
 import json
@@ -13,6 +13,7 @@ from lib import video
 app = Flask(__name__)
 predictor = None
 VideoPredictor = None
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def initialize():
     app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024 # 10MiB
@@ -120,6 +121,10 @@ def detect_faces_in_image(file_stream):
         "is_picture_of_obama": is_obama
     }
     return jsonify(result)
-
+	
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+		   
 if __name__ == '__main__':
     app.run()

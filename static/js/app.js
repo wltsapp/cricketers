@@ -4,6 +4,7 @@ $(document).ready(function() {
     var fileReader = new FileReader();
     fileReader.onload = function() {
       var dataUri = this.result;
+	  alert(dataUri);
       var html =
           "<tr>"
         + "  <td>"

@@ -54,6 +54,7 @@ class VideoPredictor:
 					(model, class_names) = pickle.load(infile)
 
 				video_capture = cv2.VideoCapture(img_path)
+				print(img_path)
 				c = 0
 
 

@@ -60,9 +60,9 @@ class VideoPredictor:
 
 				print('Start Recognition')
 				prevTime = 0
-				while True:
+				while (video_capture.isOpened()):
 					ret, frame = video_capture.read()
-
+					gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 					frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)    #resize frame (optional)
 
 					curTime = time.time()+1    # calc fps
@@ -133,7 +133,7 @@ class VideoPredictor:
 						else:
 							print('Alignment Failure')
 					# c+=1
-					#cv2.imshow('Video', frame)
+					cv2.imshow('Video', frame)
 
 					#if cv2.waitKey(1) & 0xFF == ord('q'):
 						#break

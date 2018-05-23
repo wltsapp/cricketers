@@ -140,7 +140,7 @@ class VideoPredictor:
 
 					#if cv2.waitKey(1) & 0xFF == ord('q'):
 						#break
-
+				item = dict(prob='4', kind='Failure')
 				video_capture.release()
 				#cv2.destroyAllWindows()
 		return item

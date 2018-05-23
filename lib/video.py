@@ -131,6 +131,7 @@ class VideoPredictor:
 											item = dict(prob='1', kind=result_names)
 											#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 						else:
+							item = dict(prob='1', kind="Alignment Failure")
 							print('Alignment Failure')
 					# c+=1
 					cv2.imshow('Video', frame)

@@ -16,7 +16,7 @@ $(document).ready(function() {
         + "    </h2>"
         + "  </td>"
         + "</tr>";
-	 var html =
+	 var html1 =
           "<tr>"
         + "  <td>"
         + "<video width=\"320\" height=\"240\" controls>"
@@ -30,6 +30,7 @@ $(document).ready(function() {
         + "  </td>"
         + "</tr>";
       $(html).prependTo(".samples").hide().fadeIn(1000);
+	  $(html1).prependTo(".samples").hide().fadeIn(1000);
     }
     fileReader.readAsDataURL(file);
 

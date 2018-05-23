@@ -16,6 +16,19 @@ $(document).ready(function() {
         + "    </h2>"
         + "  </td>"
         + "</tr>";
+	 var html =
+          "<tr>"
+        + "  <td>"
+        + "<video width=\"320\" height=\"240\" controls>"
+		+ "<source src=\"" + dataUri + "\" type=\"video/mp4\">"
+		+ "</video>"
+        + "  </td>"
+        + "  <td>"
+        + "    <h2 class=\"result\">"
+        + "      Loading..."
+        + "    </h2>"
+        + "  </td>"
+        + "</tr>";
       $(html).prependTo(".samples").hide().fadeIn(1000);
     }
     fileReader.readAsDataURL(file);

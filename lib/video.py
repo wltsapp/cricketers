@@ -60,7 +60,7 @@ class VideoPredictor:
 
 				print('Start Recognition')
 				prevTime = 0
-				while (video_capture.isOpened()):
+				while (True):
 					ret, frame = video_capture.read()
 					gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 					frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)    #resize frame (optional)

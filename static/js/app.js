@@ -5,7 +5,9 @@ $(document).ready(function() {
     fileReader.onload = function() {
       var dataUri = this.result;
 	  alert(dataUri);
-      var html =
+	  var html="";
+	  if(dataUri.indexOf('video') == -1){
+      html =
           "<tr>"
         + "  <td>"
         + "    <img src=\"" + dataUri + "\">"
@@ -16,7 +18,10 @@ $(document).ready(function() {
         + "    </h2>"
         + "  </td>"
         + "</tr>";
-	 var html1 =
+	  }
+	  else
+	  {
+	 html =
           "<tr>"
         + "  <td>"
         + "<video width=\"320\" height=\"240\" controls>"
@@ -29,8 +34,8 @@ $(document).ready(function() {
         + "    </h2>"
         + "  </td>"
         + "</tr>";
-      $(html).prependTo(".samples").hide().fadeIn(1000);
-	  $(html1).prependTo(".samples").hide().fadeIn(1000);
+	  }
+      $(html).prependTo(".samples").hide().fadeIn(1000);	  
     }
     fileReader.readAsDataURL(file);
 

@@ -129,9 +129,11 @@ class VideoPredictor:
 										if HumanNames[best_class_indices[0]] == H_i:
 											result_names = HumanNames[best_class_indices[0]]
 											item = dict(prob='1', kind=result_names)
+										else:
+											item = dict(prob='1', kind='No face')
 											#cv2.putText(frame, result_names, (text_x, text_y), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), thickness=1, lineType=2)
 						else:
-							item = dict(prob='1', kind="Alignment Failure")
+							item = dict(prob='1', kind='Alignment Failure')
 							print('Alignment Failure')
 					# c+=1
 					cv2.imshow('Video', frame)

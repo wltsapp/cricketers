@@ -139,4 +139,5 @@ class VideoPredictor:
 						#break
 
 				video_capture.release()
-				cv2.destroyAllWindows()
+				#cv2.destroyAllWindows()
+				return item

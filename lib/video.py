@@ -140,4 +140,4 @@ class VideoPredictor:
 
 				video_capture.release()
 				#cv2.destroyAllWindows()
-				return item
+		return item

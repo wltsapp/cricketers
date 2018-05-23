@@ -3,8 +3,7 @@ $(document).ready(function() {
   function sendFileToServer(file) {
     var fileReader = new FileReader();
     fileReader.onload = function() {
-      var dataUri = this.result;
-	  alert(dataUri);
+      var dataUri = this.result;	  
 	  var html="";
 	  if(dataUri.indexOf('video') == -1){
       html =

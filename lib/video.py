@@ -53,7 +53,7 @@ class VideoPredictor:
 				with open(classifier_filename_exp, 'rb') as infile:
 					(model, class_names) = pickle.load(infile)
 
-				video_capture = cv2.VideoCapture('../cache/short_hamilton_clip.mp4')
+				video_capture = cv2.VideoCapture('./cache/short_hamilton_clip.mp4')
 				#print(img_path)
 				c = 0
 
@@ -61,7 +61,7 @@ class VideoPredictor:
 				print('Start Recognition')
 				prevTime = 0
 				ret, frame = video_capture.read()
-				while (frame):					
+				while (True):					
 					#gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 					#frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)    #resize frame (optional)
 

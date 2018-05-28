@@ -73,7 +73,7 @@ class VideoPredictor:
 
 						#if frame.ndim == 2:
 							#frame = facenet.to_rgb(frame)
-						frame = frame[:, :, 0:3]
+						#frame = frame[:, :, 0:3]
 						bounding_boxes, _ = detect_face.detect_face(frame, minsize, pnet, rnet, onet, threshold, factor)
 						nrof_faces = bounding_boxes.shape[0]
 						print('Detected_FaceNum: %d' % nrof_faces)

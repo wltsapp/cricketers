@@ -53,8 +53,10 @@ class VideoPredictor:
 				with open(classifier_filename_exp, 'rb') as infile:
 					(model, class_names) = pickle.load(infile)
 
-				video_capture = cv2.VideoCapture('./cache/short_hamilton_clip.mp4')
+				video_capture = cv2.VideoCapture()
+				video_capture.open('./cache/short_hamilton_clip.mp4') # False
 				#print(img_path)
+				print(video_capture.read())
 				c = 0
 
 

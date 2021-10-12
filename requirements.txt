@@ -30,6 +30,6 @@ six==1.11.0
 Unidecode==1.0.22
 urllib3==1.22
 Werkzeug==0.14.1
-opencv-python==3.1.0.4
+opencv-python==3.4.0.12
 tensorflow==1.4.0
 scikit-learn==0.19.1
